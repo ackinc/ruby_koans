@@ -15,6 +15,16 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  raise TriangleError.new("All lengths must be positive") if (a <= 0) or (b <= 0) or (c <= 0)
+  raise TriangleError.new("All lengths must be positive") if (a + b <= c) or (b + c <= a) or (c + a <= b)
+
+  if a == b and a == c
+    :equilateral
+  elsif a == b or b == c or c == a
+    :isosceles
+  else
+    :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
